@@ -60,6 +60,10 @@ Dentro da academia, o “Academia Monstrão” funciona sem depender da velocida
 
 ### 6	MODELO LÓGICO<br>
 ### 7	MODELO FÍSICO<br>
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/png_bd.png?raw=true "Modelo Fisico")
+
+
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
 #### 8.1 DETALHAMENTO DAS INFORMAÇÕES
         Detalhamento sobre as informações e processo de obtenção ou geração dos dados.
