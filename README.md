@@ -41,9 +41,7 @@ Dentro da academia, o “Academia Monstrão” funciona sem depender da velocida
 
 ### 5	MODELO CONCEITUAL<br>
 #### 5.1 NOTACAO ENTIDADE RELACIONAMENTO
-![Alt text](https://github.com/discipbd2/topicos-trabalho/blob/master/sample_MC.png?raw=true "Modelo Conceitual")
-    
-     5.2 NOTACAO UML (Caso esteja fazendo a disciplina de Projeto)
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/Conceitual_1.png?raw=true "Modelo Conceitual")
 
 #### 5.3 DECISÕES DE PROJETO
     [atributo]: [descrição da decisão]
