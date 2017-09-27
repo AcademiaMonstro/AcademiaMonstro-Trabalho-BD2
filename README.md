@@ -1,36 +1,15 @@
-# TRABALHO 01 : Título do trabalho
+# TRABALHO 01 : Academia Monstro
 Trabalho desenvolvido durante a disciplina de BD
 
-    O referido projeto poderá ser:
-        a) Um novo sistema/projeto 
-        b) Uma expansão de sistema/projeto previamente desenvolvido em disciplinas anteriores 
-        (ex: Expansão dos módulos do sistema desenvolvidos em BD1 - incremento mínimo de 50% nos 
-        requisitos/complexidade)
-    
-    OBS Importantes: 
-        a) Os projetos/sistemas propostos serão validados pelo professor e pela turma
-        b) Se possível é interessante que os novos sistemas estejam correlacionados com alguma área 
-        previamente estudada pelo aluno
-        c) Caso dependa de alguma instituição/parceiro externo, a base de dados e informações pertinentes 
-        a esta devem ser obtidas no prazo de até 15 dias apos aprovação da proposta do trabalho 
-        (caso contrário, nova proposta deverá ser apresentada a turma implicando logicamente em um prazo 
-        mais curto para realização das atividades e conclusão do trabalho)
-    
-DICA: 
-    O kickstart normalmente lança inovaçôes em termos de Sofwares e Apps, portanto pode ser interessante 
-    olhar os lançamentos recentes para incrementar as possibilidades e aguçar a criatividade, o que pode 
-    auxiliar o grupo com novas ideias na solução proposta. Acesse os links abaixo do para explorar sobre apps e softwares no Kickstarter.
-    <br>
-    https://www.kickstarter.com/discover/categories/technology/software
-    <br>
-    https://www.kickstarter.com/discover/categories/technology/apps
 # Sumário
 
 ### 1	COMPONENTES<br>
-Integrantes do grupo<br>
+
+Douglas Campos Sutil
+Lucas Dipré Pereira
 
 ### 2	INTRODUÇÃO E MOTIVAÇAO<br>
-Este documento contém a especificação do projeto do banco de dados <nome do projeto> e motivação da escolha realizada. <br>
+Este documento contém a especificação do projeto do banco de dados da uma Academia de Monstro, que tem como objetivo modelar um sistema de criação, monitoramento e registro de exercícios fisicos para os alunos de uma academia, visando otimizar os treinamentos de acordo com as necessidades do aluno com um acompanhamento mais próximo do professor por meio das informações obtidas nos treinos  <br>
       
 ### 3	MINI-MUNDO<br>
 Descrever o mini-mundo. Não deve ser maior do que 30 linhas <br>
