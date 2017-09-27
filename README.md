@@ -52,11 +52,42 @@ Dentro da academia, o “Academia Monstrão” funciona sem depender da velocida
     b) justifique!
 
 #### 5.4 DESCRIÇÃO DOS DADOS 
-    [objeto]: [descrição do objeto]
-    
-    EXEMPLO:
-    CLIENTE: Tabela que armazena as informações relativas ao cliente<br>
-    CPF: campo que armazena o número de Cadastro de Pessoa Física para cada cliente da empresa.<br>
+
+Medidas:Tabela que armazena as informações relativas às medidas físicas do aluno <br>
+	id:código único utilizado para identificar o conjunto de informações da tabela <br>
+	peso:campo que armazena o peso do aluno em kg <br>
+	altura:campo que armazena o altura do aluno em cm <br>
+	cintura:campo que armazena o tamanho da cintura do aluno em cm <br>
+	biceps:campo que armazena o tamanho do bíceps do aluno em cm <br>
+	dt_medicao:campo que armazena data de medição das métricas do aluno <br>
+
+
+Exercicio:Tabela que armazena as informações relativas aos exercícios que poderam ser exercutados por alunos <br>
+	id:código único utilizado para identificar o conjunto de informações da tabela <br>
+	nome:campo que armazena o nome do exercicio <br>
+	descricao:campo que armazena uma breve descrição do exercicio <br>
+
+Serie: Tabela que armazena as informações relativas à séries(combinação de exercícios) criadas para cada aluno <br>
+	id:<br>
+	id_instrutor:<br>
+	descricao:<br>
+
+Restricoes: Tabela que armazena as informações relativas às restrições físicas <br>
+do aluno para que não seja recomendado exercícios prejudiciais ao aluno <br>
+
+Musculo: Tabela que armazena as informações relativas aos músculos do corpo humano <br>
+
+Objetivos: Tabela que armazena as informações relativas aos objetivos do aluno <br>
+no que se refere ao condicionamento físico <br>
+
+Avaliador_Fisico:Tabela que armazena as informações relativas ao avaliador físico <br>
+
+Instrutor:Tabela que armazena as informações relativas ao instrutor <br>
+
+Aluno:Tabela que armazena as informações relativas ao aluno incluindo os as <br>
+referências à outras tabelas que complementam as informações necessárias para <br>
+uma boa criação de série de exercícios para cada praticante <br>
+
 
 ### 6	MODELO LÓGICO<br>
 ### 7	MODELO FÍSICO<br>
