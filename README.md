@@ -15,11 +15,13 @@ Este documento contém a especificação do projeto do banco de dados da uma Aca
 Descrever o mini-mundo. Não deve ser maior do que 30 linhas <br>
 
 ### 4	RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
-neste ponto a codificação não e necessária, somente as ideias de telas devem ser criadas, o princípio aqui é pensar na criação da interface para identificar possíveis informações a serem armazenadas ou descartadas <br>
 
-Sugestão: https://balsamiq.com/products/mockups/<br>
-
-![Alt text](https://github.com/discipbd2/topicos-trabalho/blob/master/balsamiq.png?raw=true "Title")
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/Tela%20de%20Login%20do%20Aluno.png)
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/Tela%20de%20Cadastro%20do%20Aluno.png)
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/Tela%20de%20Treino%20Usuario.png)
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/Tela%20do%20Professor%20de%20Cria%C3%A7%C3%A3o%20de%20S%C3%A9rie%20de%20Exercicios.png)
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/Tela%20do%20professor%20de%20Atividade%20do%20Aluno.png)
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/Tela%20de%20Exame%20do%20M%C3%A9dico.png)
 
 
 ### 5	MODELO CONCEITUAL<br>
