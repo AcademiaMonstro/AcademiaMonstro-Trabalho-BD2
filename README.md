@@ -74,7 +74,188 @@ Dentro da academia, o “Academia Monstrão” funciona sem depender da velocida
         
 #### 8.2 INCLUSÃO DO SCRIPT PARA CRIAÇÃO DE TABELAS E INSERÇÃO DOS DADOS (ARQUIVO ÚNICO COM):
         a) inclusão das instruções para criação das tabelas e estruturas de amazenamento do BD
+CREATE TABLE Medidas(
+	id int primary key unique,
+	peso real not null,
+	altura real not null,
+	cintura real not null,
+	dt_medicao date default CURRENT_DATE	
+);
+
+CREATE TABLE Restricoes(
+	id int primary key unique,
+	nome varchar(45) not null,
+	descricao varchar(150) not null
+);
+
+CREATE TABLE Exercicio(
+	id int primary key unique,
+	nome varchar(50) not null,
+	descricao varchar(150) not null
+);
+
+CREATE TABLE Objetivos(
+	id int primary key unique,
+	nome varchar(150) not null
+);
+
+CREATE TABLE Musculo_Foco(
+	id int primary key unique,
+	nome varchar(45) not null
+);
+
+CREATE TABLE Avaliador_Fisico(
+	id int primary key unique,
+	nome varchar(50) not null,
+	crm varchar(50) not null,
+	login varchar(32) not null ,
+	senha varchar(32) not null
+);
+
+CREATE TABLE Instrutor(
+	id int primary key unique,
+	nome varchar(50) not null,
+	login varchar(32) not null ,
+	senha varchar(32) not null
+);
+
+CREATE TABLE Serie(
+	id int primary key unique,
+	descricao varchar(150) not null,
+	id_instrutor int,
+
+	foreign key (id_instrutor) references Instrutor(id)	
+);
+
+CREATE TABLE Aluno(
+	id int primary key unique,
+	nome varchar(50) not null,
+	login varchar(32) not null ,
+	senha varchar(32) not null,
+	dt_nascimento date not null,
+	id_medidas int,
+	id_restricoes int,
+	id_instrutor int,
+	id_avaliador int,
+	
+	foreign key (id_medidas) references Medidas(id),
+	foreign key (id_restricoes) references Restricoes(id),
+	foreign key (id_instrutor) references Instrutor(id),
+	foreign key (id_avaliador) references Avaliador_Fisico(id)	
+);
+
+CREATE TABLE Aluno_Serie(
+	id_aluno int,
+	id_serie int,
+	dt_criacao date default CURRENT_DATE,
+	dt_final date not null,
+
+	foreign key (id_aluno) references Aluno(id),
+	foreign key (id_serie) references Serie(id)	
+);
+
+CREATE TABLE Exercicio_Musculo(
+	id_exercicio int,
+	id_musculo_foco int,
+
+	foreign key (id_exercicio) references Exercicio(id),
+	foreign key (id_musculo_foco) references Musculo_Foco(id)	
+);
+
+CREATE TABLE Objetivo_Aluno(
+	id_objetivo int,
+	id_aluno int,
+
+	foreign key (id_objetivo) references Objetivos(id),
+	foreign key (id_aluno) references Aluno(id)	
+);
+
+CREATE TABLE Objetivo_Musculo(
+	id_objetivo int,
+	id_musculo int,
+
+	foreign key (id_objetivo) references Objetivos(id),
+	foreign key (id_musculo) references Musculo_Foco(id)	
+);
+
+CREATE TABLE Restricoes_Musculo(
+	id_restricoes int,
+	id_musculo int,
+
+	foreign key (id_restricoes) references Restricoes(id),
+	foreign key (id_musculo) references Musculo_Foco(id)	
+);
+
+CREATE TABLE Serie_Exercicio(
+	id_exercicio int,
+	id_serie int,
+	peso int not null,
+	repeticao int not null,
+
+	foreign key (id_exercicio) references Exercicio(id),
+	foreign key (id_serie) references Serie(id)	
+);
+
+CREATE TABLE Serie_Objetivo(
+	id_objetivo int,
+	id_serie int,
+
+	foreign key (id_objetivo) references Objetivos(id),
+	foreign key (id_serie) references Serie(id)	
+);
+        
         b) inclusão das instruções de inserção dos dados nas referidas tabelas
+        
+INSERT INTO exercicio (id, nome, descricao) 
+VALUES(1, 'Agachamento', 'abaixar até angulo de 90º e subir');
+
+INSERT INTO instrutor (id, nome, login, senha) 
+VALUES(1, 'João', 'Abacaxi', 'Abacaxi');
+
+INSERT INTO medidas (id, peso, altura, cintura) 
+VALUES(1,70, 160, 160);
+
+INSERT INTO serie (id,descricao, id_instrutor) 
+VALUES(1,'engrossar pernas', 1);
+
+INSERT INTO restricoes (id,nome, descricao) 
+VALUES(1,'joelho','ligamento operado recentemente');
+
+INSERT INTO objetivos (id,nome) 
+VALUES(1,'engrossar pernas');
+
+INSERT INTO musculo_foco (id,nome) 
+VALUES(1,'quadríceps');
+
+INSERT INTO avaliador_fisico (id, nome, login, senha, crm) 
+VALUES(1, 'João', 'Abacaxi', 'Abacaxi','pms2017es');
+
+INSERT INTO aluno (id, nome, login, senha,dt_nascimento,id_medidas,
+		   id_restricoes,id_instrutor,id_avaliador) 
+VALUES(1, 'João', 'Abacaxi', 'Abacaxi','1990-07-07',1,1,1,1);.
+
+INSERT INTO aluno_serie (id_aluno,id_serie,dt_final) 
+VALUES(1,1,'2017-10-26');
+
+INSERT INTO exercicio_musculo (id_exercicio,id_musculo_foco) 
+VALUES(1,1);
+
+INSERT INTO objetivo_aluno (id_objetivo,id_aluno) 
+VALUES(1,1);
+
+INSERT INTO objetivo_musculo (id_objetivo,id_musculo) 
+VALUES(1,1);
+
+INSERT INTO restricoes_musculo (id_restricoes,id_musculo) 
+VALUES(1,1);
+
+INSERT INTO serie_exercicio (id_serie,id_exercicio,peso,repeticao) 
+VALUES(1,1,10,10);
+
+INSERT INTO serie_objetivo (id_serie,id_objetivo) 
+VALUES(1,1);
+
+        
         c) inclusão das instruções para execução de outros procedimentos necessários
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
