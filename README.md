@@ -44,6 +44,10 @@ Dentro da academia, o “Academia Monstrão” funciona sem depender da velocida
 ![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/Conceitual_1.png?raw=true "Modelo Conceitual")
 
 #### 5.3 DECISÕES DE PROJETO
+
+	Regras de Relacionamento N:N – Para estabelecer este tipo de relacionamento, devemos ter três tabelas, sendo que a terceira é responsável por relacionar as outras duas. Para isso, é preciso que essas duas primeiras tabelas contenham uma coluna que seja chave primária.
+	As colunas que são chaves primárias na primeira e na segunda tabela devem ser colunas com chave estrangeira na terceira. Assim, esta tabela terá duas chaves estrangeiras, as quais formam uma chave primária composta.
+	
     [atributo]: [descrição da decisão]
     
     EXEMPLO:
@@ -68,25 +72,51 @@ Exercicio:Tabela que armazena as informações relativas aos exercícios que pod
 	descricao:campo que armazena uma breve descrição do exercicio <br>
 
 Serie: Tabela que armazena as informações relativas à séries(combinação de exercícios) criadas para cada aluno <br>
-	id:<br>
-	id_instrutor:<br>
-	descricao:<br>
+	id:código único utilizado para identificar o conjunto de informações da tabela<br>
+	id_instrutor: código identificador da relação entre a série e quem a criou<br>
+	descricao:campo que armazena uma breve descrição do conjunto de exercícios<br>
 
 Restricoes: Tabela que armazena as informações relativas às restrições físicas <br>
 do aluno para que não seja recomendado exercícios prejudiciais ao aluno <br>
+	id:código único utilizado para identificar o conjunto de informações da tabela<br>
+	nome: campo que armazena o nome da restrição<br>
+	descricao:campo que armazena uma breve descrição da restrição do aluno<br>
 
-Musculo: Tabela que armazena as informações relativas aos músculos do corpo humano <br>
+Musculo_Foco: Tabela que armazena as informações relativas aos músculos do corpo humano <br>
+	id:código único utilizado para identificar o conjunto de informações da tabela<br>
+	nome: campo que armazena o nome do músculo foco<br>
 
 Objetivos: Tabela que armazena as informações relativas aos objetivos do aluno <br>
 no que se refere ao condicionamento físico <br>
+	id:código único utilizado para identificar o conjunto de informações da tabela<br>
+	nome: campo que armazena o objetivo do aluno ou do exercício<br>
 
 Avaliador_Fisico:Tabela que armazena as informações relativas ao avaliador físico <br>
+	id:código único utilizado para identificar o conjunto de informações da tabela<br>
+	nome: campo que armazena o nome do avaliador físico<br>
+	login:campo que armazena o login no formato md5 do avaliador físico<br>
+	senha: campo que armazena a senha no formato md5 do avaliador físico<br>
+	crm: campo que armazena o crm do avaliador físico<br>
 
 Instrutor:Tabela que armazena as informações relativas ao instrutor <br>
-
+	id:código único utilizado para identificar o conjunto de informações da tabela<br>
+	nome: campo que armazena o nome do Instrutor<br>
+	login:campo que armazena o login no formato md5 do Instrutor<br>
+	senha: campo que armazena a senha no formato md5 do Instrutor<br>
+	
 Aluno:Tabela que armazena as informações relativas ao aluno incluindo os as <br>
 referências à outras tabelas que complementam as informações necessárias para <br>
 uma boa criação de série de exercícios para cada praticante <br>
+	id:código único utilizado para identificar o conjunto de informações da tabela<br>
+	nome: campo que armazena o nome do Aluno<br>
+	login:campo que armazena o login no formato md5 do Aluno<br>
+	senha: campo que armazena a senha no formato md5 do Aluno<br>
+	dt_nascimento: campo que armazena a data de nascimento do Aluno<br>
+	id_medidas: código identificador da relação entre o Aluno e suas medidas<br>
+	id_restricoes: código identificador da relação entre o Aluno e suas restrições (se possuir)<br>
+	id_instrutor: código identificador da relação entre o Aluno e seu instrutor<br>
+	id_avaliador: código identificador da relação entre o Aluno e seu avaliador físico<br>
+
 
 
 ### 6	MODELO LÓGICO<br>
