@@ -45,8 +45,11 @@ Dentro da academia, o “Academia Monstrão” funciona sem depender da velocida
 
 #### 5.3 DECISÕES DE PROJETO
 
-	Regras de Relacionamento N:N – Para estabelecer este tipo de relacionamento, devemos ter três tabelas, sendo que a terceira é responsável por relacionar as outras duas. Para isso, é preciso que essas duas primeiras tabelas contenham uma coluna que seja chave primária.
-	As colunas que são chaves primárias na primeira e na segunda tabela devem ser colunas com chave estrangeira na terceira. Assim, esta tabela terá duas chaves estrangeiras, as quais formam uma chave primária composta.
+	Regras de Relacionamento N:N – Para estabelecer este tipo de relacionamento, devemos ter três tabelas, <br>
+	sendo que a terceira é responsável por relacionar as outras duas. Para isso, é preciso que essas duas <br>
+	primeiras tabelas contenham uma coluna que seja chave primária.<br>
+	As colunas que são chaves primárias na primeira e na segunda tabela devem ser colunas com chave estrangeira <br>
+	na terceira. Assim, esta tabela terá duas chaves estrangeiras, as quais formam uma chave primária composta.<br>
 	
     [atributo]: [descrição da decisão]
     
