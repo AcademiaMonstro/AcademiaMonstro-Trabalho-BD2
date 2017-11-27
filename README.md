@@ -484,12 +484,18 @@ Data de Entrega: (Data a ser definida)
 	CREATE INDEX idx_id_serie_restricao_Musculoo ON Restricao_possui_Musculo USING btree (fk_musculo_foco_id,fk_restricao_id);
     
     
-    a) Lista de índices, tipos de índices com explicação de porque foram implementados
-    b) Performance esperada VS Resultados obtidos
-    c) Tabela de resultados comparando velocidades antes e depois da aplicação dos índices.
-<br>
-    Data de Entrega: (Data a ser definida)
-<br>   
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/indexprints/criacao.png?raw=true)
+<br><br>
+
+Inserção de uma quantidade reduzida de dados, houve uma perda no desempenho, porém bem pequeno.
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/indexprints/instrutorindex.png?raw=true)
+<br><br>
+
+Inserção de uma quantidade volumosa de dados, houve uma perda bem significativa no desempenho.
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/indexprints/alunoindex.png?raw=true)
+<br><br>
 
 #### 9.9	ANÁLISE DOS DADOS COM ORANGE<br>    
         a) captura das informaçõs
