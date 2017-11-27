@@ -129,6 +129,295 @@ uma boa criação de série de exercícios para cada praticante <br>
 
 ### 7	MODELO FÍSICO<br>
 
+CREATE TABLE Aluno (
+    id SERIAL PRIMARY KEY,
+    nome varchar(100) NOT NULL,
+    login varchar(32) NOT NULL UNIQUE,
+    senha varchar(32) NOT NULL,
+    dt_nascimento date,
+    active int default 1
+);
+
+CREATE TABLE Exercicio (
+    id SERIAL PRIMARY KEY,
+    nome varchar(45) NOT NULL UNIQUE,
+    descricao varchar(100) NOT NULL,
+    active int default 1
+);
+
+CREATE TABLE Restricao (
+    nome varchar(45) NOT NULL UNIQUE,
+    descricao varchar(100) NOT NULL,
+    id SERIAL PRIMARY KEY,
+    active int default 1
+);
+
+CREATE TABLE Musculo_Foco (
+    id SERIAL PRIMARY KEY,
+    nome varchar(45) NOT NULL,
+    active int default 1
+);
+
+CREATE TABLE Objetivo (
+    nome varchar(45) NOT NULL,
+    id SERIAL PRIMARY KEY,
+    active int default 1
+);
+
+CREATE TABLE Avaliador_Fisico (
+    senha varchar(32) NOT NULL,
+    nome varchar(100) NOT NULL,
+    id SERIAL PRIMARY KEY,
+    login varchar(32) NOT NULL UNIQUE,
+    crm varchar(15) NOT NULL,
+    active int default 1
+);
+
+CREATE TABLE Serie (
+    descricao varchar(150) NOT NULL,
+    id SERIAL PRIMARY KEY,
+    dt_criacao DATE DEFAULT CURRENT_DATE,
+    active int default 1
+);
+
+CREATE TABLE Instrutor (
+    id SERIAL PRIMARY KEY,
+    login varchar(32) NOT NULL UNIQUE,
+    nome varchar(100) NOT NULL,
+    senha varchar(32) NOT NULL,
+    active int default 1
+);
+
+CREATE TABLE Medidas (
+    id SERIAL PRIMARY KEY,
+    medida int NOT NULL,
+    dt_criacao DATE DEFAULT CURRENT_DATE,
+    CONSTRAINT teste_medida_check CHECK (medida > 0),
+    active int default 1
+);
+
+CREATE TABLE Tipo_Medidas (
+    nome varchar(45) NOT NULL UNIQUE,
+    id SERIAL PRIMARY KEY,
+    active int default 1
+);
+
+CREATE TABLE Aluno_possui_Serie (
+    FK_Aluno_id int NOT NULL,
+    FK_Serie_id int NOT NULL,
+    dt_criacao DATE DEFAULT CURRENT_DATE,
+    active int default 1
+);
+
+CREATE TABLE Serie_possui_Objetivo (
+    FK_Serie_id int NOT NULL,
+    FK_Objetivo_id int NOT NULL,
+    dt_criacao DATE DEFAULT CURRENT_DATE,
+    active int default 1
+);
+
+CREATE TABLE Aluno_possui_Avaliador (
+    FK_Aluno_id int NOT NULL,
+    FK_Avaliador_Fisico_id int NOT NULL,
+    dt_criacao DATE DEFAULT CURRENT_DATE,
+    active int default 1
+);
+
+CREATE TABLE Serie_possui_Exercicio (
+    FK_Exercicio_id int NOT NULL,
+    FK_Serie_id int NOT NULL,
+    dt_criacao DATE DEFAULT CURRENT_DATE,
+    active int default 1
+);
+
+CREATE TABLE Aluno_possui_Instrutor (
+    FK_Aluno_id int NOT NULL,
+    FK_Instrutor_id int NOT NULL,
+    dt_criacao DATE DEFAULT CURRENT_DATE,
+    active int default 1
+);
+
+CREATE TABLE Serie_possui_Instrutor (
+    FK_Instrutor_id int NOT NULL,
+    FK_Serie_id int NOT NULL,
+    dt_criacao DATE DEFAULT CURRENT_DATE,
+    active int default 1
+);
+
+CREATE TABLE Exercicio_possui_Musculo (
+    FK_Exercicio_id int NOT NULL,
+    FK_Musculo_Foco_id int NOT NULL,
+    dt_criacao DATE DEFAULT CURRENT_DATE,
+    active int default 1
+);
+
+CREATE TABLE Objetivo_possui_Musculo (
+    FK_Objetivo_id int NOT NULL,
+    FK_Musculo_Foco_id int NOT NULL,
+    active int default 1
+);
+
+CREATE TABLE Restricao_possui_Musculo (
+    FK_Musculo_Foco_id int NOT NULL,
+    FK_Restricao_id int NOT NULL,
+    active int default 1
+);
+
+CREATE TABLE Aluno_possui_Restricao (
+    FK_Aluno_id int NOT NULL,
+    FK_Restricao_id int NOT NULL,
+    dt_criacao DATE DEFAULT CURRENT_DATE,
+    active int default 1
+);
+
+CREATE TABLE Exercicio_possui_Restricao (
+    FK_Exercicio_id int NOT NULL,
+    FK_Restricao_id int NOT NULL,
+    active int default 1
+);
+
+CREATE TABLE Aluno_possui_Medidas (
+    FK_Aluno_id int NOT NULL,
+    FK_Medidas_id int NOT NULL,
+    dt_criacao DATE DEFAULT CURRENT_DATE,
+    active int default 1
+);
+
+CREATE TABLE Medidas_possui_Tipo (
+    FK_Tipo_Medidas_id int NOT NULL,
+    FK_Medidas_id int NOT NULL,
+    active int default 1
+);
+ 
+ALTER TABLE Aluno_possui_Serie ADD CONSTRAINT FK_Aluno_possui_Serie_0
+    FOREIGN KEY (FK_Aluno_id)
+    REFERENCES Aluno (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Aluno_possui_Serie ADD CONSTRAINT FK_Aluno_possui_Serie_1
+    FOREIGN KEY (FK_Serie_id)
+    REFERENCES Serie (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Serie_possui_Objetivo ADD CONSTRAINT FK_Serie_possui_Objetivo_0
+    FOREIGN KEY (FK_Serie_id)
+    REFERENCES Serie (id)
+    ON DELETE RESTRICT ON UPDATE RESTRICT;
+ 
+ALTER TABLE Serie_possui_Objetivo ADD CONSTRAINT FK_Serie_possui_Objetivo_1
+    FOREIGN KEY (FK_Objetivo_id)
+    REFERENCES Objetivo (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Aluno_possui_Avaliador ADD CONSTRAINT FK_Aluno_possui_Avaliador_0
+    FOREIGN KEY (FK_Aluno_id)
+    REFERENCES Aluno (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Aluno_possui_Avaliador ADD CONSTRAINT FK_Aluno_possui_Avaliador_1
+    FOREIGN KEY (FK_Avaliador_Fisico_id)
+    REFERENCES Avaliador_Fisico (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Serie_possui_Exercicio ADD CONSTRAINT FK_Serie_possui_Exercicio_0
+    FOREIGN KEY (FK_Exercicio_id)
+    REFERENCES Exercicio (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Serie_possui_Exercicio ADD CONSTRAINT FK_Serie_possui_Exercicio_1
+    FOREIGN KEY (FK_Serie_id)
+    REFERENCES Serie (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Aluno_possui_Instrutor ADD CONSTRAINT FK_Aluno_possui_Instrutor_0
+    FOREIGN KEY (FK_Aluno_id)
+    REFERENCES Aluno (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Aluno_possui_Instrutor ADD CONSTRAINT FK_Aluno_possui_Instrutor_1
+    FOREIGN KEY (FK_Instrutor_id)
+    REFERENCES Instrutor (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Serie_possui_Instrutor ADD CONSTRAINT FK_Serie_possui_Instrutor_0
+    FOREIGN KEY (FK_Instrutor_id)
+    REFERENCES Instrutor (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Serie_possui_Instrutor ADD CONSTRAINT FK_Serie_possui_Instrutor_1
+    FOREIGN KEY (FK_Serie_id)
+    REFERENCES Serie (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Exercicio_possui_Musculo ADD CONSTRAINT FK_Exercicio_possui_Musculo_0
+    FOREIGN KEY (FK_Exercicio_id)
+    REFERENCES Exercicio (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Exercicio_possui_Musculo ADD CONSTRAINT FK_Exercicio_possui_Musculo_1
+    FOREIGN KEY (FK_Musculo_Foco_id)
+    REFERENCES Musculo_Foco (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Objetivo_possui_Musculo ADD CONSTRAINT FK_Objetivo_possui_Musculo_0
+    FOREIGN KEY (FK_Objetivo_id)
+    REFERENCES Objetivo (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Objetivo_possui_Musculo ADD CONSTRAINT FK_Objetivo_possui_Musculo_1
+    FOREIGN KEY (FK_Musculo_Foco_id)
+    REFERENCES Musculo_Foco (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Restricao_possui_Musculo ADD CONSTRAINT FK_Restricao_possui_Musculo_0
+    FOREIGN KEY (FK_Musculo_Foco_id)
+    REFERENCES Musculo_Foco (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Restricao_possui_Musculo ADD CONSTRAINT FK_Restricao_possui_Musculo_1
+    FOREIGN KEY (FK_Restricao_id)
+    REFERENCES Restricao (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Exercicio_possui_Restricao ADD CONSTRAINT FK_Exercicio_possui_Restricao_0
+    FOREIGN KEY (FK_Exercicio_id)
+    REFERENCES Exercicio (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Exercicio_possui_Restricao ADD CONSTRAINT FK_Exercicio_possui_Restricao_1
+    FOREIGN KEY (FK_Restricao_id)
+    REFERENCES Restricao (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Aluno_possui_Medidas ADD CONSTRAINT FK_Aluno_possui_Medidas_0
+    FOREIGN KEY (FK_Aluno_id)
+    REFERENCES Aluno (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Aluno_possui_Medidas ADD CONSTRAINT FK_Aluno_possui_Medidas_1
+    FOREIGN KEY (FK_Medidas_id)
+    REFERENCES Medidas (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+ALTER TABLE Medidas_possui_Tipo ADD CONSTRAINT FK_Medidas_possui_Tipo_0
+    FOREIGN KEY (FK_Tipo_Medidas_id)
+    REFERENCES Tipo_Medidas (id)
+    ON DELETE RESTRICT ON UPDATE RESTRICT;
+ 
+ALTER TABLE Medidas_possui_Tipo ADD CONSTRAINT FK_Medidas_possui_Tipo_1
+    FOREIGN KEY (FK_Medidas_id)
+    REFERENCES Medidas (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+
+ALTER TABLE Aluno_possui_Restricao ADD CONSTRAINT FK_Aluno_possui_Restricao_0
+    FOREIGN KEY (FK_Aluno_id)
+    REFERENCES Aluno (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
+
+ALTER TABLE Aluno_possui_Restricao ADD CONSTRAINT FK_Aluno_possui_Restricao_1
+    FOREIGN KEY (FK_Restricao_id)
+    REFERENCES Restricao (id)
+    ON DELETE SET NULL ON UPDATE CASCADE;
 
 
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
