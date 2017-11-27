@@ -41,7 +41,7 @@ Dentro da academia, o “Academia Monstrão” funciona sem depender da velocida
 
 ### 5	MODELO CONCEITUAL<br>
 #### 5.1 NOTACAO ENTIDADE RELACIONAMENTO
-![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/Conceitual_1.png?raw=true "Modelo Conceitual")
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/Conceitual_1%20(2)F.png?raw=true "Modelo Conceitual")
 
 #### 5.3 DECISÕES DE PROJETO
 
@@ -123,9 +123,12 @@ uma boa criação de série de exercícios para cada praticante <br>
 
 
 ### 6	MODELO LÓGICO<br>
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/L%C3%B3gico_automaticoF.png?raw=true "Modelo Fisico")
+
+
 ### 7	MODELO FÍSICO<br>
 
-![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/png_bd.png?raw=true "Modelo Fisico")
 
 
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
