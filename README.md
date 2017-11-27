@@ -360,13 +360,51 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 <br>
 
 #### 9.6	GERACAO DE DADOS (MÍNIMO DE 1,5 MILHÃO DE REGISTROS PARA PRINCIPAL RELAÇAO)<br>
-        a) principal tabela do sistema deve ter no mínimo 1,5 milhão de registros
-        b) tabelas diretamente relacionadas a tabela principal 100 mil registros
-        c) tabelas auxiliares de relacao multivalorada mínimo de 10 registros
-        d) registrar o tempo de inserção em cada uma das tabelas do banco de dados
-        e) especificar a quantidade de registros inseridos em cada tabela
-        Para melhor compreensão verifiquem o exemplo na base de testes:<br>
-        https://github.com/discipbd2/base-de-testes-locadora
+
+<br> CRIAÇÃO DO BANCO DE DADOS <br>
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/CRIACAO_TABELA.png?raw=true "CRIAÇÃO DO BANCO")
+
+<br> INSERÇÃO DE 1,5 MILHÕES DE REGISTROS TABELA ALUNO <br>
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/ALUNO.png?raw=true "ALUNO")
+
+<br> INSERÇÃO DE REGISTROS TABELA RESTRICAO <br>
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/RESTRICAO.png?raw=true "RESTRICAO")
+
+<br> INSERÇÃO DE REGISTROS TABELA ALUNO_POSSUI_RESTRICAO <br>
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/ALUNORESTRICAO.png?raw=true "ALUNORESTRICAO")
+
+<br> INSERÇÃO DE REGISTROS TABELA EXERCICIO <br>
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/EXERCICIO.png?raw=true "EXERCICIO")
+
+<br> INSERÇÃO DE REGISTROS TABELA SERIE <br>
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/SERIE.png?raw=true "SERIE")
+
+<br> INSERÇÃO DE REGISTROS TABELA SERIE_POSSUI_EXERCICIO <br>
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/SERIEEXERCICIO.png?raw=true "SERIEEXERCICIO")
+
+<br> INSERÇÃO DE REGISTROS TABELA INSTRUTOR <br>
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/INSTRUTOR.png?raw=true "INSTRUTOR")
+
+<br> INSERÇÃO  DE REGISTROS TABELA MEDIDAS <br>
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/MEDIDAS.png?raw=true "MEDIDAS")
+
+<br> INSERÇÃO DE REGISTROS TABELA TIPO_MEDIDAS <br>
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/TIPOMEDIDAS.png?raw=true "TIPOMEDIDAS")
+
+<br> INSERÇÃO DE REGISTROS TABELA AVALIADOR_FISICO <br>
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/AVALIADORFISICO.png?raw=true "AVALIADORFISICO")
+
         
 
 
