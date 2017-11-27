@@ -349,11 +349,27 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
         
 
 #### 9.4	LISTA DE CODIGOS DAS FUNÇÕES, ASSERÇOES E TRIGGERS<br>
-        Detalhamento sobre funcionalidade de cada código.
-        a) Objetivo
-        b) Código do objeto (função/trigger/asserção)
-        c) exemplo de dados para aplicação
-        d) resultados em forma de tabela/imagem
+
+        CREATE OR REPLACE FUNCTION verifica_nomes()
+	 RETURNS trigger AS
+	'
+		BEGIN
+			IF EXISTS (Select * from objetivo where NEW.nome=nome) THEN 
+			RAISE EXCEPTION ''Erro: Esse objetivo já existe.. tente outro nome!'';
+
+			END IF;
+			RETURN NULL;
+		END;
+	'
+	LANGUAGE plpgsql;
+
+	CREATE TRIGGER inseri_objetivos
+	 BEFORE INSERT OR UPDATE ON objetivo
+	 FOR EACH ROW
+	EXECUTE PROCEDURE verifica_nomes();
+
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/trigger.png?raw=true "trigger")
 <br>
 
 #### 9.5	Administração do banco de dados<br>
