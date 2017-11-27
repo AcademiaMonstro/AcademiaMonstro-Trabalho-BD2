@@ -336,7 +336,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 
 #### 9.3	SELECT DAS VISÕES COM PRIMEIROS 10 REGISTROS DA VIEW <br>
 	
-	<br>##### View utilizada para localizar os alunos com algum tipo de restrição <br>
+	<br> View utilizada para localizar os alunos com algum tipo de restrição <br>
 	create view aluno_com_restricao as
 	SELECT aluno.nome,restricao.nome as restricao,restricao.descricao FROM aluno_possui_restricao
 	INNER JOIN aluno ON aluno.id = aluno_possui_restricao.fk_aluno_id
@@ -345,7 +345,7 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 	<br>
 	select * from aluno_com_restricao <br>
 	
-	![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/consultaview.png?raw=true "View aluno_com_restricao")
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/consultaview.png?raw=true "View aluno_com_restricao")
         
 
 #### 9.4	LISTA DE CODIGOS DAS FUNÇÕES, ASSERÇOES E TRIGGERS<br>
