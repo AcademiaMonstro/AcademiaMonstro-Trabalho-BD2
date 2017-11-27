@@ -129,13 +129,7 @@ uma boa criação de série de exercícios para cada praticante <br>
 
 
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
-#### 8.1 DETALHAMENTO DAS INFORMAÇÕES
-        Detalhamento sobre as informações e processo de obtenção ou geração dos dados.
-        Referenciar todas as fontes referentes a:
-        a) obtenção dos dados
-        b) obtenção de códigos reutilizados
-        c) fontes de estudo para desenvolvimento do projeto
-        
+#### 8.1 DETALHAMENTO DAS INFORMAÇÕES        
 #### 8.2 INCLUSÃO DO SCRIPT PARA CRIAÇÃO DE TABELAS E INSERÇÃO DOS DADOS (ARQUIVO ÚNICO COM):
         a) inclusão das instruções para criação das tabelas e estruturas de amazenamento do BD
 CREATE TABLE Medidas(
