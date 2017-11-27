@@ -325,7 +325,28 @@ VALUES(1,1);
 OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
 
 #### 9.2	SELECT DAS TABELAS COM PRIMEIROS 10 REGISTROS INSERIDOS <br> 
-    Data de Entrega: (Data a ser definida)
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/select%2010/Screenshot_1.png?raw=true)
+<br>
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/select%2010/alunorestricao.png?raw=true)
+<br>
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/select%2010/avaliadorfisico.png?raw=true)
+<br>
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/select%2010/exercicio.png?raw=true)
+<br>
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/select%2010/instrutor.png?raw=true)
+<br>
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/select%2010/medidas.png?raw=true)
+<br>
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/select%2010/medidas.png?raw=true)
+<br>
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/select%2010/restricao.png?raw=true)
+<br>
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/select%2010/serie.png?raw=true)
+<br>
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/select%2010/serie_exercicio.png?raw=true)
+<br>
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/select%2010/tipo_medidas.png?raw=true)
 <br>
 
 #### 9.3	SELECT DAS VISÕES COM PRIMEIROS 10 REGISTROS DA VIEW <br>
@@ -440,6 +461,29 @@ Data de Entrega: (Data a ser definida)
 <br>
 
 #### 9.8	APLICAÇAO DE ÍNDICES E TESTES DE PERFORMANCE<br>
+
+	CREATE INDEX idx_id ON Exercicio USING btree (id);                 
+	CREATE INDEX idaluno_id ON Aluno USING btree (id);
+	CREATE INDEX idrestricao_id ON Restricao USING btree (id);
+	CREATE INDEX idmusculo_id ON Musculo_Foco USING btree (id);
+	CREATE INDEX idobjetivo_id ON Objetivo USING btree (id);
+	CREATE INDEX idavaliador_id ON Avaliador_Fisico USING btree (id);
+	CREATE INDEX idinstrutor_id ON Instrutor USING btree (id);
+	CREATE INDEX idmedidas_id ON Medidas USING btree (id);
+	CREATE INDEX idtipo_id ON Tipo_Medidas USING btree (id);
+	CREATE INDEX idx_id_aluno_serie ON Aluno_possui_Serie USING btree (FK_Aluno_id,FK_Serie_id);
+	CREATE INDEX idx_id_serie_objetivo ON Serie_possui_Objetivo USING btree (FK_Objetivo_id,FK_Serie_id);
+	CREATE INDEX idx_id_aluno_intrutor ON Aluno_possui_Instrutor USING btree (FK_Aluno_id,FK_Instrutor_id);
+	CREATE INDEX idx_id_serie_exercicio_musculo ON Exercicio_possui_Musculo USING btree (FK_Exercicio_id,FK_Musculo_Foco_id);
+	CREATE INDEX idx_id_serie_objetivo_musculo ON Objetivo_possui_Musculo USING btree (FK_Objetivo_id,FK_Musculo_Foco_id);
+	CREATE INDEX idx_id_restricao_Musculo ON Restricao_possui_Musculo USING btree (FK_Musculo_Foco_id,FK_Restricao_id);
+	CREATE INDEX idx_id_Aluno_possui_Restricao ON Aluno_possui_Restricao USING btree (FK_Aluno_id,FK_Restricao_id);
+	CREATE INDEX idx_id_Exercicio_possui_Restricao ON Exercicio_possui_Restricao USING btree (FK_Exercicio_id,FK_Restricao_id);
+	CREATE INDEX idx_id_aluno_Medidas ON Aluno_possui_Medidas USING btree (FK_Aluno_id,FK_Medidas_id);
+	CREATE INDEX idx_id_medidas_Tipo ON Medidas_possui_Tipo USING btree (fk_tipo_medidas_id,fk_medidas_id);
+	CREATE INDEX idx_id_serie_restricao_Musculoo ON Restricao_possui_Musculo USING btree (fk_musculo_foco_id,fk_restricao_id);
+    
+    
     a) Lista de índices, tipos de índices com explicação de porque foram implementados
     b) Performance esperada VS Resultados obtidos
     c) Tabela de resultados comparando velocidades antes e depois da aplicação dos índices.
