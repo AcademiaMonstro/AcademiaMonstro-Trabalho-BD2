@@ -639,8 +639,10 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 ![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/select%2010/serie_exercicio.png?raw=true)
 <br>
 ![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/select%2010/tipo_medidas.png?raw=true)
-<br>
-
+<br><br><br>
+		SELECT exercicio.nome,serie.descricao FROM serie_possui_exercicio
+		INNER JOIN serie ON serie.id = serie_possui_exercicio.fk_serie_id
+		INNER JOIN exercicio ON serie_possui_exercicio.fk_exercicio_id = exercicio.id
 #### 9.3	SELECT DAS VISÕES COM PRIMEIROS 10 REGISTROS DA VIEW <br>
 	
 	<br> View utilizada para localizar os alunos com algum tipo de restrição <br>
