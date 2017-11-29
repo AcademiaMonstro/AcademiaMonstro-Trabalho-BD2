@@ -692,7 +692,9 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 
 #### 9.6	GERACAO DE DADOS (MÍNIMO DE 1,5 MILHÃO DE REGISTROS PARA PRINCIPAL RELAÇAO)<br>
 
-## A criação de tabela e inclusão de dados foi realizada em um computador AMD-A8 7600 com 8GB de Ram e SSD SanDisk SDSSDA120G, utilizando-se do Windows 10 <br>
+### A criação de tabela e inclusão de dados foi realizada em um computador AMD-A8 7600 com 8GB de Ram e SSD SanDisk SDSSDA120G, utilizando-se do Windows 10 <br>
+
+####<br>Para a criação da massa de dados foi criada uma aplicação em php, disponível no projeto.<br>
 
 <br> CRIAÇÃO DO BANCO DE DADOS <br>
 
