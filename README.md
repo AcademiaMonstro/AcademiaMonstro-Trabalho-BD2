@@ -690,16 +690,41 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 
 #### 9.3	SELECT DAS VISÕES COM PRIMEIROS 10 REGISTROS DA VIEW <br>
 	
-	<br> View utilizada para localizar os alunos com algum tipo de restrição <br>
+		/*Puxando alunos e suas medidas*/
+
+	create view aluno_com_medidas as
+
+	SELECT aluno.nome AS Nome_do_Aluno,medidas.id as id_da_Medida,tipo_medidas.nome as Tipo_de_Medida,medidas.medida as 
+	Medida_cm_ou_g,medidas.dt_criacao as Dia_de_medicao FROM aluno
+	LEFT JOIN aluno_possui_medidas ON aluno.id = aluno_possui_medidas.fk_aluno_id
+	LEFT JOIN medidas ON medidas.id = aluno_possui_medidas.fk_medidas_id
+	LEFT JOIN medidas_possui_tipo ON medidas.id = medidas_possui_tipo.fk_medidas_id
+	LEFT JOIN tipo_medidas ON tipo_medidas.id = medidas_possui_tipo.fk_tipo_medidas_id
+
+	select * from aluno_com_medidas LIMIT 10;
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/printinsert10/select_aluno_medidas.png)
+
+	/*Puxando alunos que possuem alguma restrição*/
+
 	create view aluno_com_restricao as
 	SELECT aluno.nome,restricao.nome as restricao,restricao.descricao FROM aluno_possui_restricao
 	INNER JOIN aluno ON aluno.id = aluno_possui_restricao.fk_aluno_id
 	INNER JOIN restricao ON aluno_possui_restricao.fk_restricao_id = restricao.id
-	
-	<br>
-	select * from aluno_com_restricao <br>
-	
-![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/consultaview.png?raw=true "View aluno_com_restricao")
+
+	select * from aluno_com_restricao LIMIT 10;
+
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/printinsert10/select_aluno_restricao.png)
+
+	/*Puxando uma Série e seus Exercícios*/
+
+	create view serie_exercicio as
+	SELECT exercicio.nome,serie.descricao FROM serie_possui_exercicio
+	INNER JOIN serie ON serie.id = serie_possui_exercicio.fk_serie_id
+	INNER JOIN exercicio ON serie_possui_exercicio.fk_exercicio_id = exercicio.id
+
+	select * from serie_exercicio LIMIT 10;
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/printinsert10/select_serie_exercicios.png)
         
 
 #### 9.4	LISTA DE CODIGOS DAS FUNÇÕES, ASSERÇOES E TRIGGERS<br>
