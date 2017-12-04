@@ -727,7 +727,36 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 ![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/printinsert10/select_serie_exercicios.png)
         
 
-#### 9.4	LISTA DE CODIGOS DAS FUNÇÕES, ASSERÇOES E TRIGGERS<br>
+#### 9.4	LISTA DE CODIGOS DAS FUNÇÕES, ASSERÇOES E TRIGGERS
+
+Verificação para previnir que um aluno não tenha mais de 5 séries ativas(1 para cada dia da semana).
+	
+	CREATE OR REPLACE FUNCTION verifica_qtd_serie_ativa()
+	 RETURNS trigger AS
+	'
+		BEGIN
+			IF ((SELECT count(*) FROM aluno
+				LEFT JOIN aluno_possui_serie ON aluno.id = aluno_possui_serie.fk_aluno_id
+				LEFT JOIN serie ON serie.id = aluno_possui_serie.fk_serie_id
+				where serie.active = 1 and aluno.id = NEW.fk_aluno_id) >= 5) THEN 
+			RAISE EXCEPTION ''Erro: Esse aluno já muitas séries.. tente outro série antes 
+			e inserir uma nova!'';
+
+			END IF;
+			RETURN NULL;
+		END;
+	'
+	LANGUAGE plpgsql;
+
+	CREATE TRIGGER inserir_serie_aluno
+	 BEFORE INSERT OR UPDATE ON aluno_possui_serie
+	 FOR EACH ROW
+	EXECUTE PROCEDURE verifica_qtd_serie_ativa();
+	
+![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/printinsert10/trigger_assert.png)
+
+
+Verificação para previnir a inclusão de objetivos repetidos.
 
         CREATE OR REPLACE FUNCTION verifica_nomes()
 	 RETURNS trigger AS
@@ -749,7 +778,6 @@ OBS: Incluir para os tópicos 9.2 e 9.3 as instruções SQL + imagens (print da 
 
 
 ![Alt text](https://github.com/AcademiaMonstro/AcademiaMonstro-Trabalho-BD2/blob/master/prints/trigger.png?raw=true "trigger")
-<br>
 
 #### 9.5	Administração do banco de dados<br>
         Descrição detalhada sobre como serão executadas no banco de dados as <br>
